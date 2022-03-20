@@ -1,0 +1,54 @@
+body {
+  padding-top: 5rem;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.add-container {
+	margin-top:100px;
+	width:50vw;
+	margin: auto;
+	background-color: #c0c0c0;
+	padding:25px;
+	border-radius:15px;
+}
+
+.form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+h1 {
+	text-align:center;
+}
+
+#buttonDiv {
+	display:flex;
+	justify-content:space-between;
+}
+
+.button {
+	width:40%;
+	margin: 10px;
+	height: 50px;
+}
+
+.custom-select, option, #select {
+	width:60%;
+}
+.input-group {
+	width:100%;
+}
+
+.input-group-prepend {
+	width:30%;
+}
+
+.label {
+	width:30%;
+}
