@@ -25,13 +25,13 @@
       </li>
 	
        <li class="nav-item">
-	    <form class="form-inline my-2 my-lg-0" action="listJoueur" method="post">      
+	    <form class="form-inline my-2 my-lg-0" action="listTournoi" method="post">      
          <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Deconnexion">Deconnexion</button>
          </form>
       </li>
      
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="listJoueur" method="post">
+    <form class="form-inline my-2 my-lg-0" action="listTournoi" method="post">
       <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Search" aria-label="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Rechercher">Rechercher</button>
     </form>

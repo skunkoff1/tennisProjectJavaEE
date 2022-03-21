@@ -40,7 +40,7 @@ public class ListTournoi extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("liste", tournoiDao.lister());
+		request.setAttribute("listeTournoi", tournoiDao.lister());
 		HttpSession session = request.getSession();
 		session.removeAttribute("idTournoi");
 		session.removeAttribute("anneeTournoi");
@@ -66,9 +66,8 @@ public class ListTournoi extends HttpServlet {
 		
 		if(request.getParameter("action1")!=null) {
 			String search = request.getParameter("txtsearch");	
-//			request.setAttribute("liste", tournoiDao.chercher(search));
-			response.sendRedirect("/tennis/listTournoi");
-			this.getServletContext().getRequestDispatcher("/WEB-INF/listtournoi.jsp").forward(request, response);
+			request.setAttribute("listeTournoi", tournoiDao.chercher(search));
+			this.getServletContext().getRequestDispatcher("/WEB-INF/listTournoi.jsp").forward(request, response);
 		}
 		
 		if(mode != null) {
@@ -78,6 +77,7 @@ public class ListTournoi extends HttpServlet {
 //				return;
 			}
 		}
+		
 		if(idString!=null && name!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("idTournoi", idString);

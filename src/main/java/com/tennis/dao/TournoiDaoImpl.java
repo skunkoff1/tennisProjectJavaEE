@@ -160,8 +160,30 @@ public class TournoiDaoImpl implements TournoiDao{
 	}
 
 	@Override
-	public void chercher(String search) {
-		
+	public List<Tournoi> chercher(String search) {
+		ArrayList<Tournoi> liste = new ArrayList<Tournoi>();
+		Connection cn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {	
+			cn = dao.getConnection();
+			ps = cn.prepareStatement("SELECT epreuve.ANNEE, epreuve.TYPE_EPREUVE, tournoi.NOM, epreuve.ID "
+					+ "FROM tennis.epreuve, tennis.tournoi"
+					+ " WHERE epreuve.ID_TOURNOI = tournoi.ID AND epreuve.ANNEE "
+					+ "LIKE '%"+search+"%' OR tournoi.NOM LIKE '%"+search+"%'");
+			rs = ps.executeQuery();
+			while(rs.next()) {	
+				liste.add(new Tournoi(rs.getInt("epreuve.ID"), 
+						rs.getInt("epreuve.ANNEE"), 
+						rs.getString("tournoi.NOM"),
+						rs.getString("epreuve.TYPE_EPREUVE")));
+				}
+			}
+			catch (SQLException e){
+				e.printStackTrace();
+				System.err.println("Un problème est survenu" + e);
+			}
+		return liste;
 	}
 
 	

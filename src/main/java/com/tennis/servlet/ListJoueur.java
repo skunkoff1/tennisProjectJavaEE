@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.tennis.dao.DaoFactory;
 import com.tennis.dao.JoueurDao;
 import com.tennis.dao.JoueurDaoImpl;
+import com.tennis.dao.TournoiDao;
 
 /**
  * Servlet implementation class ListJoueur
@@ -21,6 +22,7 @@ import com.tennis.dao.JoueurDaoImpl;
 public class ListJoueur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoueurDao joueurDao;
+	private TournoiDao tournoiDao;
 		
 
 	/**
@@ -68,17 +70,15 @@ public class ListJoueur extends HttpServlet {
 		String mode = request.getParameter("mode");
 		
 		if(request.getParameter("action1")!=null) {
-			String search = request.getParameter("txtsearch");	
-			request.setAttribute("liste", joueurDao.chercher(search));
-//			response.sendRedirect("/tennis/listJoueur");
-			this.getServletContext().getRequestDispatcher("/WEB-INF/listjoueur.jsp").forward(request, response);
+				String search = request.getParameter("txtsearch");	
+				request.setAttribute("liste", joueurDao.chercher(search));
+				this.getServletContext().getRequestDispatcher("/WEB-INF/listjoueur.jsp").forward(request, response);
 		}
 		
 		if(mode != null) {
 			if(mode.equals("remove")) {
 				joueurDao.supprimer(id);
 				response.sendRedirect("/tennis/listJoueur");
-//				return;
 			}
 		}
 		if(idString!=null && name!=null) {

@@ -9,5 +9,5 @@ public interface TournoiDao {
 	void ajouter(Tournoi tournoi);
 	void modifier(Tournoi tournoi);
 	void supprimer(int id);
-	void chercher(String search);
+	List<Tournoi> chercher(String search);
 }
