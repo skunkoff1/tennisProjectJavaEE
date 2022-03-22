@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.tennis.dao.DaoFactory;
 import com.tennis.dao.MatchDao;
 import com.tennis.dao.MatchDaoImpl;
@@ -49,9 +51,20 @@ public class ListMatch extends HttpServlet {
 			search = "";
 		}
 		
+		if(request.getParameter("action2")!=null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("isConnected");
+			response.sendRedirect("/tennis/login");
+		}
+		
 		request.setAttribute("search",search);
 		request.setAttribute("listeMatch", matchDao.lister(mode, search));
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listmatch.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("isConnected") == null) {
+			response.sendRedirect("/tennis/login");
+		}else {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/listmatch.jsp").forward(request, response);
+		}
 	}
 
 	/**

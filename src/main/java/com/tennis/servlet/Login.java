@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tennis.dao.DaoFactory;
 import com.tennis.dao.UserDaoImpl;
@@ -52,6 +53,9 @@ public class Login extends HttpServlet {
 		
 		User user = userDao.isValidLogin(login, password);
 		if(user != null) {
+			HttpSession session = request.getSession();
+			boolean connected = true;
+			session.setAttribute("isConnected", connected);
 			response.sendRedirect("/tennis/listJoueur");
 		}
 		else {

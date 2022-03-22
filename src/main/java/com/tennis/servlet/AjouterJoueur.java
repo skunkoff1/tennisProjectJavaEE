@@ -32,8 +32,12 @@ public class AjouterJoueur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterjoueur.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("isConnected") == null) {
+			response.sendRedirect("/tennis/login");
+		}else {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterjoueur.jsp").forward(request, response);
+		}
 	}
 
 	/**

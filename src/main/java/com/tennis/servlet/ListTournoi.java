@@ -47,7 +47,11 @@ public class ListTournoi extends HttpServlet {
 		session.removeAttribute("nomTournoi");
 		session.removeAttribute("typeTournoi");
 		session.removeAttribute("modeTournoi");
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listTournoi.jsp").forward(request, response);
+		if(session.getAttribute("isConnected") == null) {
+			response.sendRedirect("/tennis/login");
+		}else {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/listTournoi.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -68,6 +72,12 @@ public class ListTournoi extends HttpServlet {
 			String search = request.getParameter("txtsearch");	
 			request.setAttribute("listeTournoi", tournoiDao.chercher(search));
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listTournoi.jsp").forward(request, response);
+		}
+		
+		if(request.getParameter("action2")!=null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("isConnected");
+			response.sendRedirect("/tennis/login");
 		}
 		
 		if(mode != null) {

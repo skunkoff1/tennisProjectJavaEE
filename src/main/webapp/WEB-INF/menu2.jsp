@@ -26,7 +26,7 @@
 	
        <li class="nav-item">
 	    <form class="form-inline my-2 my-lg-0" action="listTournoi" method="post">      
-         <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Deconnexion">Deconnexion</button>
+         <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action2" value="Deconnexion">Deconnexion</button>
          </form>
       </li>
      

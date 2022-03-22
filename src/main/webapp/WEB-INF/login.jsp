@@ -15,7 +15,7 @@
   <body style="background-color:#000000 ;">
     <form class="form-signin" method="post" action="login">
   <img class="mb-4" src="logo.png" alt="">
-  <h1 class="h3 mb-3 font-weight-normal" style="color:#FFF;">Please sign in</h1>
+  <h1 class="h3 mb-3 font-weight-normal" style="color:#FFF;">Veuillez vous connecter</h1>
   <label for="inputEmail" class="sr-only" >Email address</label>
   <input type="email" id="inputEmail" name="txtLogin" class="form-control" placeholder="Addresse mail" required autofocus>
   <label for="inputPassword" class="sr-only" >Password</label>
