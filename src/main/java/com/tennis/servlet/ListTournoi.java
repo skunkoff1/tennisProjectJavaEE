@@ -32,8 +32,7 @@ public class ListTournoi extends HttpServlet {
     @Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
-		DaoFactory daofactory = DaoFactory.getInstance();
-		tournoiDao = new TournoiDaoImpl(daofactory);
+		tournoiDao = new TournoiDaoImpl(DaoFactory.getInstance());
 	}
 
 	/**

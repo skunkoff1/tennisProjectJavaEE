@@ -36,10 +36,10 @@
   <thead>
     <tr>
       <th scope="col" style="width:10%">#</th>
-      <th scope="col" style="width:25%">Année</th>
+      <th scope="col" style="width:10%%">Année</th>
       <th scope="col" style="width:20%">Nom</th>
       <th scope="col" style="width:20%">Type d'épreuve</th>
-	  <th scope="col" style="width:20%"></th>
+	  <th scope="col" style="width:35%%"></th>
     </tr>
   </thead>
   <tbody>
@@ -50,6 +50,8 @@
       <td>${tournoi.nom}</td>
       <td>${tournoi.type}</td>
 	  <td>
+	  <button type="button" class="btn btn-outline-success rowTournoi" name="afficherFinale" 
+	    data-id="${tournoi.id}" data-name="${tournoi.nom}" data-annee="${tournoi.annee}" data-type="${tournoi.type}">Voir la finale</button>
 	    <button type="button" class="btn btn-outline-primary editTournoiBtn" name="modfierTournoi" 
 	    data-id="${tournoi.id}" data-name="${tournoi.nom}" data-annee="${tournoi.annee}" data-type="${tournoi.type}">Modifier</button>
 		<button type="button" class="btn btn-outline-warning remTournoiBtn" name="remove" 

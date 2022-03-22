@@ -19,6 +19,11 @@ public class Joueur {
 		this.sexe = sexe;
 	}
 	
+	public Joueur(String nom, String prenom) {
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+	
 	public String getNom() {
 		return nom;
 	}

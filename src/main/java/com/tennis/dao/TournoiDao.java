@@ -2,6 +2,7 @@ package com.tennis.dao;
 
 import java.util.List;
 
+import com.tennis.model.Joueur;
 import com.tennis.model.Tournoi;
 
 public interface TournoiDao {
@@ -10,4 +11,5 @@ public interface TournoiDao {
 	void modifier(Tournoi tournoi);
 	void supprimer(int id);
 	List<Tournoi> chercher(String search);
+	List<Joueur> getplayers(int id);
 }

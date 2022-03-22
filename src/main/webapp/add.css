@@ -31,6 +31,10 @@ h1 {
 	display:flex;
 	justify-content:space-between;
 }
+#buttonDiv2 {
+	display:flex;
+	justify-content:center;
+}
 
 .button {
 	width:40%;
@@ -51,4 +55,30 @@ h1 {
 
 .label {
 	width:30%;
+}
+
+.cancelLink {
+	padding: 10px 30px;
+	text-align:center;
+	text-decoration:none;
+	background-color: red;
+	color:white;
+	border-radius:5px;
+}
+
+.cancelLink:hover {
+	color:white;
+	filter: brightness(0.8);
+}
+
+.displayPlayer, .playerName {
+	display:flex;
+}
+
+.labelPlayer {
+	width:30%;
+}
+
+.playerName h4 {
+	margin-right:10px;
 }

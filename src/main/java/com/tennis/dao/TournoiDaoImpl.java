@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.tennis.model.Joueur;
 import com.tennis.model.Tournoi;
 
 public class TournoiDaoImpl implements TournoiDao{
@@ -183,6 +185,50 @@ public class TournoiDaoImpl implements TournoiDao{
 				e.printStackTrace();
 				System.err.println("Un problème est survenu" + e);
 			}
+		return liste;
+	}
+
+	@Override
+	public List<Joueur> getplayers(int id) {
+		ArrayList<Joueur> liste = new ArrayList<Joueur>();
+		Connection cn = null;
+		PreparedStatement ps = null;	
+		ResultSet rs =null;
+		try {
+			cn = dao.getConnection();
+			ps = cn.prepareStatement("SELECT joueur.nom, joueur.prenom "
+									+ "FROM joueur, match_tennis "
+									+ "WHERE match_tennis.ID_EPREUVE ='"+id+"'"
+									+ " AND joueur.ID = match_tennis.ID_VAINQUEUR;");
+			rs = ps.executeQuery();
+			boolean empty = true;
+			while(rs.next()) {	
+				empty = false;
+				liste.add(new Joueur(rs.getString("joueur.PRENOM"),rs.getString("joueur.NOM")));
+			}	
+			if(empty == true) {
+				liste.add(new Joueur("pas de ","données"));
+			}
+			ps.close();				
+			rs = null;
+			cn = dao.getConnection();
+			ps = cn.prepareStatement("SELECT joueur.nom, joueur.prenom "
+									+ "FROM joueur, match_tennis "
+									+ "WHERE match_tennis.ID_EPREUVE ='"+id+"'"
+									+ " AND joueur.ID = match_tennis.ID_FINALISTE;");
+			rs = ps.executeQuery();
+			empty=true;
+			while(rs.next()) {		
+				empty = false;
+				liste.add(new Joueur(rs.getString("joueur.PRENOM"),rs.getString("joueur.NOM")));
+			}
+			if(empty == true) {
+				liste.add(new Joueur("pas de ","données"));
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+		
+		}
 		return liste;
 	}
 

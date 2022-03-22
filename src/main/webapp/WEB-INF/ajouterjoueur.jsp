@@ -62,7 +62,7 @@
 			<input type="text" name="playerName" class="form-control" placeholder="Nom du joueur" value="${name}" required autofocus>
 		</div>
 		<div class="input-group mb-3">
-			<label for="playerFirstName" class="label">Pténom du Joueur</label>
+			<label for="playerFirstName" class="label">Prénom du Joueur</label>
 			<input type="text" name="playerFirstName" class="form-control" placeholder="Prénom du joueur" value="${first}">
 		</div>
 		<div class="input-group mb-3">

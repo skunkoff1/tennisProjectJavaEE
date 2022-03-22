@@ -67,4 +67,19 @@ for(const elmt of removeTournoiBtns) {
 	});
 }
 
+let rows = document.getElementsByClassName("rowTournoi");
+for(const elmt of rows) {
+	elmt.addEventListener("click", async function(event) {
+		let id = event.target.getAttribute('data-id');
+	    let name = event.target.getAttribute('data-name');
+	    let annee = event.target.getAttribute('data-annee');
+	    let type = event.target.getAttribute('data-type');
+	    let request = await fetch("/tennis/final?id="+id+"&name="+name+"&annee="+annee+"&type="+type, {
+			method: "post"
+			}).then((response) =>{
+				window.location.href = "http://localhost:8080/tennis/final";
+			})
+	})
+}
+
     
