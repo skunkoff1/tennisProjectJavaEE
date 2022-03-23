@@ -41,7 +41,6 @@ public class MatchDaoImpl implements MatchDao{
 					}						
 					
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} finally {
 					try {
@@ -94,7 +93,6 @@ public class MatchDaoImpl implements MatchDao{
 								"vainqueur"));
 					}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} finally {
 					try {
@@ -121,7 +119,6 @@ public class MatchDaoImpl implements MatchDao{
 								"finaliste"));
 					}
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} finally {
 					try {
@@ -139,7 +136,6 @@ public class MatchDaoImpl implements MatchDao{
 	@Override
 	public List<Match> ajouter(int annnee, String tournoi, String winnerName, String winnerFirst, String finalName,
 			String finalFirst) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 			

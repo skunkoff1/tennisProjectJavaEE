@@ -51,21 +51,27 @@ public class AfficherFinale extends HttpServlet {
 		HttpSession session = request.getSession();
 		String idString = request.getParameter("id");
 		int id=0;
+		
 		if(idString!=null) {
 			id = Integer.parseInt(idString);
 		}
 		
+		
 		if (request.getParameter("cancel") != null) {
 			response.sendRedirect("/tennis/listTournoi");
 		}
+		
 		String annee = request.getParameter("annee");
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
+		
 		session.setAttribute("anneeFinale", annee);
 		session.setAttribute("nomFinale", name);
 		session.setAttribute("typeFinale", type);
+		
 		List<Joueur> joueurs = tournoiDao.getplayers(id);			
 		session.setAttribute("joueurs", joueurs);		
+		
 		response.sendRedirect("/tennis/final");
 	}
 

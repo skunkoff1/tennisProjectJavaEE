@@ -49,13 +49,7 @@ public class ListMatch extends HttpServlet {
 		}
 		if(search == null) {
 			search = "";
-		}
-		
-		if(request.getParameter("action2")!=null) {
-			HttpSession session = request.getSession();
-			session.removeAttribute("isConnected");
-			response.sendRedirect("/tennis/login");
-		}
+		}		
 		
 		request.setAttribute("search",search);
 		request.setAttribute("listeMatch", matchDao.lister(mode, search));
@@ -79,9 +73,17 @@ public class ListMatch extends HttpServlet {
 			search = "";
 		}
 		
-		request.setAttribute("search",search);
-		request.setAttribute("listeMatch", matchDao.lister(mode, search));
-		this.getServletContext().getRequestDispatcher("/WEB-INF/listmatch.jsp").forward(request, response);
+		if(request.getParameter("action2")!=null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("isConnected");
+			response.sendRedirect("/tennis/login");
+		} else {
+			request.setAttribute("search",search);
+			request.setAttribute("listeMatch", matchDao.lister(mode, search));
+			this.getServletContext().getRequestDispatcher("/WEB-INF/listmatch.jsp").forward(request, response);
+		}
+		
+		
 	}
 
 }

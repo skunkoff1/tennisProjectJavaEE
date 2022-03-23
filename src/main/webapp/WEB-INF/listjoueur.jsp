@@ -35,7 +35,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col" style="width:10%">#</th>
       <th scope="col" style="width:25%">Nom</th>
       <th scope="col" style="width:20%">Prenom</th>
       <th scope="col" style="width:20%">Sexe</th>
@@ -45,7 +44,6 @@
   <tbody>
    <c:forEach items="${liste}" var="joueur">
     <tr>
-      <th scope="row">${joueur.id}</th>
       <td>${joueur.nom}</td>
       <td>${joueur.prenom}</td>
       <td>${joueur.sexe}</td>

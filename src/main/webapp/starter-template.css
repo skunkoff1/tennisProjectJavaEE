@@ -27,3 +27,7 @@ body {
 h1 {
 	text-align:center;
 }
+
+th, td, tr {
+	text-align:center;
+}

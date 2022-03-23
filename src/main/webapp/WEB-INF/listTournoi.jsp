@@ -35,17 +35,15 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col" style="width:10%">#</th>
-      <th scope="col" style="width:10%%">Année</th>
-      <th scope="col" style="width:20%">Nom</th>
+      <th scope="col" style="width:20%%">Année</th>
+      <th scope="col" style="width:25%">Nom</th>
       <th scope="col" style="width:20%">Type d'épreuve</th>
-	  <th scope="col" style="width:35%%"></th>
+	  <th scope="col" style="width:40%%"></th>
     </tr>
   </thead>
   <tbody>
    <c:forEach items="${listeTournoi}" var="tournoi">
     <tr>
-      <th scope="row">${tournoi.id}</th>
       <td>${tournoi.annee}</td>
       <td>${tournoi.nom}</td>
       <td>${tournoi.type}</td>
