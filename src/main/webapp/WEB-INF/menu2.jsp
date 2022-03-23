@@ -12,7 +12,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/tennis/ajouterjoueur">Ajouter un joueur</a>
           <a class="dropdown-item" href="/tennis/ajoutertournoi">Ajouter un tournoi</a>
-          <a class="dropdown-item" href="/tennis/ajoutermatch">Ajouter un match</a>
+          <!--<a class="dropdown-item" href="/tennis/ajoutermatch">Ajouter un match</a>  -->
         </div>
       </li>
       <li class="nav-item dropdown">
