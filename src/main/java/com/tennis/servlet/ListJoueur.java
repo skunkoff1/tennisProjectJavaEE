@@ -22,7 +22,6 @@ import com.tennis.dao.TournoiDao;
 public class ListJoueur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoueurDao joueurDao;
-	private TournoiDao tournoiDao;
 		
 
 	/**
@@ -46,12 +45,13 @@ public class ListJoueur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("liste", joueurDao.lister());
 		HttpSession session = request.getSession();
+		session.setAttribute("currentPage", "joueur");
 		session.removeAttribute("id");
 		session.removeAttribute("name");
 		session.removeAttribute("first");
 		session.removeAttribute("sex");
 		session.removeAttribute("mode");
-		if(session.getAttribute("isConnected") == null) {
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/tennis/login");
 		}else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listjoueur.jsp").forward(request, response);	

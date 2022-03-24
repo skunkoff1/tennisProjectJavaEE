@@ -54,8 +54,8 @@ public class Login extends HttpServlet {
 		User user = userDao.isValidLogin(login, password);
 		if(user != null) {
 			HttpSession session = request.getSession();
-			boolean connected = true;
-			session.setAttribute("isConnected", connected);
+			session.setAttribute("user", user.getLogin());
+			session.setAttribute("currentPage", "joueur");
 			response.sendRedirect("/tennis/listJoueur");
 		}
 		else {

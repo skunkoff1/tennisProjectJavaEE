@@ -14,7 +14,7 @@
 <title>Ajouter un joueur</title>
 </head>
 <body>
-<%@ include file="menu2.jsp" %>
+<%@ include file="menu.jsp" %>
 <% 	
 	String name = (String)session.getAttribute("nomFinale");
 	String annee = (String)session.getAttribute("anneeFinale");

@@ -54,7 +54,8 @@ public class ListMatch extends HttpServlet {
 		request.setAttribute("search",search);
 		request.setAttribute("listeMatch", matchDao.lister(mode, search));
 		HttpSession session = request.getSession();
-		if(session.getAttribute("isConnected") == null) {
+		session.setAttribute("currentPage", "match");
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/tennis/login");
 		}else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listmatch.jsp").forward(request, response);

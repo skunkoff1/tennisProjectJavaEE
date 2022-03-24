@@ -5,7 +5,7 @@
   </button>
  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      
+      <%String currentPage = (String) session.getAttribute("currentPage"); %>
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ajouter</a>
@@ -31,9 +31,23 @@
       </li>
      
     </ul>
+    <% if(currentPage.equals("joueur")) {%>
     <form class="form-inline my-2 my-lg-0" action="listJoueur" method="post">
-      <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Rechercher un joueur" aria-label="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Rechercher">Rechercher</button>
     </form>
+    <%} %>
+    <% if(currentPage.equals("tournoi")) {%>
+    <form class="form-inline my-2 my-lg-0" action="listTournoi" method="post">
+      <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Rechercher un tournoi" aria-label="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Rechercher">Rechercher</button>
+    </form>
+    <%} %>
+    <% if(currentPage.equals("match")) {%>
+    <form class="form-inline my-2 my-lg-0" action="listmatch" method="post">
+      <input class="form-control mr-sm-2" type="text" name="txtsearch" placeholder="Rechercher un match" aria-label="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="action1" value="Rechercher">Rechercher</button>
+    </form>
+    <%} %>
   </div>
 </nav>

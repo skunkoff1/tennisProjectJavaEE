@@ -33,7 +33,7 @@ public class AjouterJoueur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if(session.getAttribute("isConnected") == null) {
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/tennis/login");
 		}else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/ajouterjoueur.jsp").forward(request, response);

@@ -14,10 +14,11 @@
     <title>Liste des matchs</title>
   </head>
   <body>
-<%@ include file="menu3.jsp" %>
+<%@ include file="menu.jsp" %>
 <main role="main" class="container">
 
   <div class="starter-template">
+  	<h1>Bienvenue ${user}</h1>
     <h1>Liste des matchs</h1>
     <p class="lead">Bienvenue .... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor.</p>
   </div>

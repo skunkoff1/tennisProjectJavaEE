@@ -41,12 +41,13 @@ public class ListTournoi extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("listeTournoi", tournoiDao.lister());
 		HttpSession session = request.getSession();
+		session.setAttribute("currentPage", "tournoi");
 		session.removeAttribute("idTournoi");
 		session.removeAttribute("anneeTournoi");
 		session.removeAttribute("nomTournoi");
 		session.removeAttribute("typeTournoi");
 		session.removeAttribute("modeTournoi");
-		if(session.getAttribute("isConnected") == null) {
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/tennis/login");
 		}else {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/listTournoi.jsp").forward(request, response);
@@ -66,6 +67,8 @@ public class ListTournoi extends HttpServlet {
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
 		String mode = request.getParameter("mode");
+
+		HttpSession session = request.getSession();
 		
 		if(request.getParameter("action1")!=null) {
 			String search = request.getParameter("txtsearch");	
@@ -74,7 +77,6 @@ public class ListTournoi extends HttpServlet {
 		}
 		
 		if(request.getParameter("action2")!=null) {
-			HttpSession session = request.getSession();
 			session.removeAttribute("isConnected");
 			response.sendRedirect("/tennis/login");
 		}
@@ -88,7 +90,6 @@ public class ListTournoi extends HttpServlet {
 		}
 		
 		if(idString!=null && name!=null) {
-			HttpSession session = request.getSession();
 			session.setAttribute("idTournoi", idString);
 			session.setAttribute("anneeTournoi", annee);
 			session.setAttribute("nomTournoi", name);
