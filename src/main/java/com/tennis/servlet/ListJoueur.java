@@ -1,6 +1,7 @@
 package com.tennis.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import com.tennis.dao.DaoFactory;
 import com.tennis.dao.JoueurDao;
 import com.tennis.dao.JoueurDaoImpl;
 import com.tennis.dao.TournoiDao;
+import com.tennis.model.Joueur;
 
 /**
  * Servlet implementation class ListJoueur
@@ -22,6 +24,7 @@ import com.tennis.dao.TournoiDao;
 public class ListJoueur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private JoueurDao joueurDao;
+	private ArrayList<Joueur> listeJoueur;
 		
 
 	/**
@@ -77,6 +80,10 @@ public class ListJoueur extends HttpServlet {
 		
 		if(request.getParameter("action1")!=null) {
 				String search = request.getParameter("txtsearch");	
+				listeJoueur = (ArrayList<Joueur>) joueurDao.chercher(search);
+				if(listeJoueur.size()==0) {
+					request.setAttribute("error", "aucun joueur trouvé");
+				}
 				request.setAttribute("liste", joueurDao.chercher(search));
 				this.getServletContext().getRequestDispatcher("/WEB-INF/listjoueur.jsp").forward(request, response);
 		}

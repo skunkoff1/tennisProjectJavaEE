@@ -15,6 +15,11 @@
   </head>
   <body>
 <%@ include file="menu.jsp" %>
+<% String error = (String)request.getAttribute("error"); 
+	if(error == null) {
+		error="";
+	}
+%>
 <main role="main" class="container">
 	
   <div class="starter-template">
@@ -30,7 +35,6 @@
 <a class="btn btn-primary" href="/tennis/ajouterjoueur" role="button">Ajouter un joueur</a>
 <a class="btn btn-primary" href="/tennis/listJoueur" role="button">Afficher tous les joueurs</a>
 </div>
-
 
 
 <table class="table">
@@ -58,6 +62,9 @@
     </c:forEach>
   </tbody>
 </table>
+<div class="message">
+	<p><%=error %>
+</div>
 </div>
 
 
