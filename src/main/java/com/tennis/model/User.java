@@ -2,6 +2,7 @@ package com.tennis.model;
 
 public class User {
 	private int id;
+	private String name;
 	private String login;
 	private String password;
 	private int profil;
@@ -10,11 +11,27 @@ public class User {
 		
 	}
 	
-	public User(int id,String login, String password, int profil) {
+	public User(String name, String login, String password) {		
+		this.name= name;
+		this.login = login;
+		this.password = password;
+		this.profil = 1;
+	}
+	
+	public User(int id,String name, String login, String password, int profil) {
 		this.id = id;
+		this.name= name;
 		this.login = login;
 		this.password = password;
 		this.profil = profil;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getId() {

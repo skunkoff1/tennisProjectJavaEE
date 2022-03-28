@@ -28,13 +28,18 @@ h1 {
 	text-align:center;
 }
 
-th, td, tr {
-	text-align:center;
-}
+
 
 .message {
 	display:flex;
 	justify-content:center;
 	font-size:3rem;
 	color:red;
+}
+
+.connect {
+	color:white;
+	font-size:20px;
+	margin-left:200px;
+	margin-top:5px;
 }
