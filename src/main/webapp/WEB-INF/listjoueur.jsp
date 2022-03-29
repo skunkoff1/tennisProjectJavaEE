@@ -80,7 +80,7 @@
 		</table>
 		<div class="message">
 			<p><%=error%>
-		</div>
+		</div>		
 	</div>
 
 

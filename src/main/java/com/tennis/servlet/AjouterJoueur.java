@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tennis.beans.BeanException;
 import com.tennis.dao.DaoFactory;
 import com.tennis.dao.JoueurDao;
 import com.tennis.dao.JoueurDaoImpl;
@@ -45,6 +46,7 @@ public class AjouterJoueur extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		session.removeAttribute("erreur");
 		String idString = (String)session.getAttribute("id");
 		int id = 0; 
 		if(idString != null) {
@@ -54,16 +56,34 @@ public class AjouterJoueur extends HttpServlet {
 		String firstName = request.getParameter("playerFirstName");
 		String sex = request.getParameter("playerSex");	
 		
-		if(request.getParameter("add") != null) {
-			Joueur j = new Joueur(name, firstName, sex);
+		if (request.getParameter("cancel") != null) {
+			response.sendRedirect("/tennis/listJoueur");
+			return;
+		}		
+		
+			Joueur j = new Joueur();
+			try {
+				j.setNom(name);
+			} catch (BeanException e) {
+				session.setAttribute("erreur", e.getMessage());
+				doGet(request, response);
+				return;
+			}
+			try {
+				j.setPrenom(firstName);
+			} catch (BeanException e) {
+				session.setAttribute("erreur", e.getMessage());
+				doGet(request, response);
+				return;
+			}
+			j.setSexe(sex);
+			
 			joueurDao = new JoueurDaoImpl(DaoFactory.getInstance());
+		if(request.getParameter("add") != null) {
 			joueurDao.ajouter(j);
 			response.sendRedirect("/tennis/listJoueur");
-		} else if (request.getParameter("cancel") != null) {
-			response.sendRedirect("/tennis/listJoueur");
-		} else if(request.getParameter("confirm") != null) {
-			Joueur j = new Joueur(id,name, firstName, sex);
-			joueurDao = new JoueurDaoImpl(DaoFactory.getInstance());
+		} else if(request.getParameter("confirm") != null) {	
+			j.setId(id);
 			joueurDao.modifier(j);
 			response.sendRedirect("/tennis/listJoueur");
 		}

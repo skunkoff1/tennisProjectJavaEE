@@ -29,6 +29,10 @@
 	String mode = (String) session.getAttribute("mode");
 	String title = "";
 	String current = "";
+	String erreur = (String) session.getAttribute("erreur");	
+	if (erreur == null) {
+		erreur = "";
+	}
 	if (sex == null) {
 		sex = "";
 	}
@@ -103,6 +107,9 @@
 				}
 				%>
 			</div>
+			<div class="erreur">
+				<p><%=erreur%>
+			</div>	
 		</form>
 	</div>
 	<script src="javascript.js"></script>
