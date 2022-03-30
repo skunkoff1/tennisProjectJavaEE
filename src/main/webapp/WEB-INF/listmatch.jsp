@@ -58,9 +58,9 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col" style="width: 10%">Année</th>
-					<th scope="col" style="width: 20%">Tournoi</th>
-					<th scope="col" style="width: 25%">Nom</th>
+					<th scope="col" style="width: 20%">Année</th>
+					<th scope="col" style="width: 25%">Tournoi</th>
+					<th scope="col" style="width: 30%">Nom</th>
 					<th scope="col" style="width: 25%">Statut</th>
 					<th scope="col" style="width: 20%"></th>
 				</tr>
@@ -72,14 +72,14 @@
 						<td>${match.tournoi}</td>
 						<td>${match.nom}</td>
 						<td>${match.statut}</td>
-						<td>
+						<!--  <td>
 							<button type="button" class="btn btn-outline-primary editBtn"
 								name="modfier" data-id="${joueur.id}" data-name="${joueur.nom}"
 								data-first="${joueur.prenom}" data-sex="${joueur.sexe}">Modifier</button>
 							<button type="button" class="btn btn-outline-warning remBtn"
 								name="remove" data-id="${joueur.id}" data-name="${joueur.nom}"
 								data-first="${joueur.prenom}">Supprimer</button>
-						</td>
+						</td>-->
 					</tr>
 				</c:forEach>
 			</tbody>
