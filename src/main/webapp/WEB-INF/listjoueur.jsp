@@ -31,12 +31,7 @@
 
 		<div class="starter-template">
 			<h1>Liste des joueurs</h1>
-			<p class="lead">Bienvenue .... Lorem ipsum dolor sit amet,
-				consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-				exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-				esse cillum dolor.</p>
+			<p class="lead">Bienvenue </p>
 		</div>
 
 	</main>

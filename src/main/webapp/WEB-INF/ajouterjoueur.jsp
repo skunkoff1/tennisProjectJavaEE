@@ -112,10 +112,12 @@
 				<p><%=erreur%>
 			</div>	
 		</form>
+		<% if(mode.equals("add")) { %>
 		<form class="form-group" method="post" action="ajouterjoueur">
 		<button class="btn btn-lg btn-danger btn-block button"
 					style="border-color: #FFF;" type="submit" name="cancel">Annuler</button>
 					</form>
+					<% } %>
 	</div>
 	<script src="javascript.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
